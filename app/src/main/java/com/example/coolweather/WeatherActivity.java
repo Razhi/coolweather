@@ -35,7 +35,7 @@ import okhttp3.Response;
 public class WeatherActivity extends AppCompatActivity {
     private ScrollView weatherLayout;
     private TextView titleCity;
-    private TextView titleUpdateTime;
+   // private TextView titleUpdateTime;
     private TextView degreeText;
     private TextView weatherInfoText;
     private LinearLayout forecastLayout;
@@ -62,7 +62,7 @@ public class WeatherActivity extends AppCompatActivity {
         bingPicImg=(ImageView) findViewById(R.id.bing_pic_img);
         weatherLayout=(ScrollView) findViewById(R.id.weather_layout);
         titleCity=(TextView) findViewById(R.id.title_city);
-        titleUpdateTime=(TextView) findViewById(R.id.title_update_time);
+        //titleUpdateTime=(TextView) findViewById(R.id.title_update_time);
         degreeText=(TextView) findViewById(R.id.degree_text);
         weatherInfoText=(TextView) findViewById(R.id.weather_info_text);
         forecastLayout=(LinearLayout) findViewById(R.id.forecast_layout);
@@ -129,7 +129,6 @@ public class WeatherActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 final String responseText=response.body().string();
                 final Weather weather=Utilty.handleWeatherResponse(responseText);
-                //Weather weather=Utilty.handleWeatherResponse(responseText);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -155,7 +154,7 @@ public class WeatherActivity extends AppCompatActivity {
         String degree=weather.now.temperature+"℃";
         String weatherInfo=weather.now.more.info;
         titleCity.setText(cityName);
-        titleUpdateTime.setText(updateTime);
+        //titleUpdateTime.setText(updateTime);
         degreeText.setText(degree);
         weatherInfoText.setText(weatherInfo);
         forecastLayout.removeAllViews();
